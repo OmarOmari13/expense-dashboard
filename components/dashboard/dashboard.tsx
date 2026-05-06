@@ -1,6 +1,5 @@
 "use client";
 
-
 import Image from "next/image";
 import { useState } from "react";
 import {
@@ -64,8 +63,8 @@ export default function Dashboard() {
       {/* SIDEBAR */}
       <aside
         className={`
-          fixed md:static z-50 top-0 left-0 h-full w-[180px]
-          bg-black p-4 flex flex-col justify-between
+          fixed md:static z-50 top-0 left-0 h-full w-[150px]
+          bg-black p-4 flex flex-col justify-between 
           transform transition-transform duration-300
           ${open ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
@@ -78,19 +77,20 @@ export default function Dashboard() {
             </button>
           </div>
 
-          <div className="flex flex-col items-center mt-20 mb-8">
+          <div className="flex flex-col mt-16 mb-6 items-start">
             <img
               src="https://i.pravatar.cc/100"
-              className="w-16 h-16 rounded-xl"
+              className="w-12 h-12 rounded-xl"
             />
-            <h2 className="mt-3 text-sm font-semibold">Samantha</h2>
-            <p className="text-gray-400 text-xs text-center">
+            <h2 className="mt-2 text-sm font-semibold">Samantha</h2>
+            <p className="text-gray-400 text-xs">
               samantha@email.com
             </p>
           </div>
 
-          <nav className="space-y-3 text-sm mt-10">
-            <MenuItem icon={<FaHome />} text="Dashboard" />
+          <nav className="space-y-6  text-sm md:text-lg">
+            <MenuItem icon={<FaHome />} text="Dashboard"  />
+            
             <MenuItem active icon={<FaChartPie />} text="Expenses" />
             <MenuItem icon={<FaWallet />} text="Wallets" />
             <MenuItem icon={<FaChartPie />} text="Summary" />
@@ -101,7 +101,7 @@ export default function Dashboard() {
       </aside>
 
       {/* MAIN */}
-      <main className="flex-1 bg-gray-100 text-black md:rounded-3xl p-4 md:p-8 ml-0 md:ml-[180px]">
+      <main className="flex-1 bg-gray-100 text-black md:rounded-3xl p-4 md:p-8 ml-0 md:ml-[100px]">
         {/* MOBILE TOP */}
         <div className="md:hidden flex items-center mb-4">
           <button onClick={() => setOpen(true)}>
@@ -121,7 +121,7 @@ export default function Dashboard() {
               01 - 25 March, 2020
             </p>
 
-            {/* ✅ CLEAN BAR CHART (NO BOX) */}
+            {/* BAR CHART */}
             <div className="h-24 mb-8">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData}>
@@ -195,17 +195,19 @@ export default function Dashboard() {
             <Progress label="Transportation" value={40} amount="420.700" />
 
             <div className="mt-10 bg-gray-200 rounded-2xl p-5 text-center">
-                <div className="flex flex-row items-center justify-between mt-[-40]">
+              <div className="flex flex-row items-center justify-between mt-[-40]">
                 <Image src="/Illustration.png" alt="image" width={80} height={80}/>
                 <Image src="/Illustration (1).png" alt="image" width={50} height={50}/>
+              </div>
 
-                </div>
               <h4 className="font-semibold mb-2">
                 Save more money
               </h4>
+
               <p className="text-sm text-gray-600 mb-4">
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
+
               <button className="bg-black text-white px-5 py-2 rounded-lg">
                 VIEW TIPS
               </button>
@@ -230,7 +232,7 @@ function MenuItem({
 }) {
   return (
     <div
-      className={`flex items-center gap-3 cursor-pointer ${
+      className={`flex items-center gap-2 cursor-pointer ${
         active ? "text-white font-semibold" : "text-gray-400"
       }`}
     >
