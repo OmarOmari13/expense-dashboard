@@ -51,7 +51,7 @@ export default function Dashboard() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen p-10 bg-black text-white">
+    <div className="flex  min-h-screen md:p-10 bg-white md:bg-black text-white">
       {/* OVERLAY */}
       {open && (
         <div
@@ -64,7 +64,7 @@ export default function Dashboard() {
       <aside
         className={`
           fixed md:static z-50 top-0 left-0 h-full w-[150px]
-          bg-black p-4 flex flex-col justify-between 
+          bg-black p-4 flex flex-col justify-between
           transform transition-transform duration-300
           ${open ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
@@ -72,6 +72,7 @@ export default function Dashboard() {
         <div>
           <div className="flex justify-between items-center md:hidden mb-4">
             <h2 className="text-sm font-bold">Menu</h2>
+
             <button onClick={() => setOpen(false)}>
               <FaTimes />
             </button>
@@ -82,35 +83,59 @@ export default function Dashboard() {
               src="https://i.pravatar.cc/100"
               className="w-12 h-12 rounded-xl"
             />
-            <h2 className="mt-2 text-sm font-semibold">Samantha</h2>
+
+            <h2 className="mt-2 text-sm font-semibold">
+              Samantha
+            </h2>
+
             <p className="text-gray-400 text-xs">
               samantha@email.com
             </p>
           </div>
 
-          <nav className="space-y-6  text-sm md:text-lg">
-            <MenuItem icon={<FaHome />} text="Dashboard"  />
-            
-            <MenuItem active icon={<FaChartPie />} text="Expenses" />
-            <MenuItem icon={<FaWallet />} text="Wallets" />
-            <MenuItem icon={<FaChartPie />} text="Summary" />
+          <nav className="space-y-6 text-sm md:text-lg">
+            <MenuItem icon={<FaHome />} text="Dashboard" />
+
+            <MenuItem
+              active
+              icon={<FaChartPie />}
+              text="Expenses"
+            />
+
+            <MenuItem
+              icon={<FaWallet />}
+              text="Wallets"
+            />
+
+            <MenuItem
+              icon={<FaChartPie />}
+              text="Summary"
+            />
+
             <MenuItem icon={<FaHome />} text="Accounts" />
-            <MenuItem icon={<FaCog />} text="Settings" />
+
+            <MenuItem
+              icon={<FaCog />}
+              text="Settings"
+            />
           </nav>
         </div>
       </aside>
 
       {/* MAIN */}
-      <main className="flex-1 bg-gray-100 text-black md:rounded-3xl p-4 md:p-8 ml-0 md:ml-[100px]">
+      <main className="flex-1 bg-white md:bg-gray-100 text-black md:rounded-3xl p-4 md:p-8 ml-0 md:ml-[100px]">
         {/* MOBILE TOP */}
         <div className="md:hidden flex items-center mb-4">
           <button onClick={() => setOpen(true)}>
             <FaBars />
           </button>
-          <h1 className="ml-4 font-bold text-lg">Expenses</h1>
+
+          <h1 className="ml-4 font-bold text-lg">
+            Expenses
+          </h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6">
+        <div className="flex  mt-10  flex-col lg:flex-row gap-6">
           {/* LEFT */}
           <div className="flex-1">
             <h1 className="hidden md:block text-3xl font-bold">
@@ -149,6 +174,7 @@ export default function Dashboard() {
                 desc="Belanja di pasar"
                 amount="-326.800"
               />
+
               <Transaction
                 icon={<FaBus />}
                 color="bg-purple-500"
@@ -156,6 +182,7 @@ export default function Dashboard() {
                 desc="Naik bus umum"
                 amount="-15.000"
               />
+
               <Transaction
                 icon={<FaHouseUser />}
                 color="bg-orange-500"
@@ -173,6 +200,7 @@ export default function Dashboard() {
                 desc="Makan Steak"
                 amount="-156.000"
               />
+
               <Transaction
                 icon={<FaPlay />}
                 color="bg-green-500"
@@ -189,15 +217,45 @@ export default function Dashboard() {
               Where your money go?
             </h3>
 
-            <Progress label="Food and Drinks" value={60} amount="872.400" />
-            <Progress label="Shopping" value={80} amount="1.378.200" />
-            <Progress label="Housing" value={70} amount="928.500" />
-            <Progress label="Transportation" value={40} amount="420.700" />
+            <Progress
+              label="Food and Drinks"
+              value={60}
+              amount="872.400"
+            />
+
+            <Progress
+              label="Shopping"
+              value={80}
+              amount="1.378.200"
+            />
+
+            <Progress
+              label="Housing"
+              value={70}
+              amount="928.500"
+            />
+
+            <Progress
+              label="Transportation"
+              value={40}
+              amount="420.700"
+            />
 
             <div className="mt-10 bg-gray-200 rounded-2xl p-5 text-center">
-              <div className="flex flex-row items-center justify-between mt-[-40]">
-                <Image src="/Illustration.png" alt="image" width={80} height={80}/>
-                <Image src="/Illustration (1).png" alt="image" width={50} height={50}/>
+              <div className="flex flex-row items-center justify-between mt-[-40px]">
+                <Image
+                  src="/Illustration.png"
+                  alt="image"
+                  width={80}
+                  height={80}
+                />
+
+                <Image
+                  src="/Illustration (1).png"
+                  alt="image"
+                  width={50}
+                  height={50}
+                />
               </div>
 
               <h4 className="font-semibold mb-2">
@@ -233,7 +291,9 @@ function MenuItem({
   return (
     <div
       className={`flex items-center gap-2 cursor-pointer ${
-        active ? "text-white font-semibold" : "text-gray-400"
+        active
+          ? "text-white font-semibold"
+          : "text-gray-400"
       }`}
     >
       {icon}
@@ -254,6 +314,7 @@ function Section({
       <h3 className="text-gray-600 font-semibold mb-3">
         {title}
       </h3>
+
       <div className="space-y-4">{children}</div>
     </div>
   );
@@ -280,11 +341,16 @@ function Transaction({
         >
           {icon}
         </div>
+
         <div>
           <h4 className="font-semibold">{title}</h4>
-          <p className="text-gray-400 text-sm">{desc}</p>
+
+          <p className="text-gray-400 text-sm">
+            {desc}
+          </p>
         </div>
       </div>
+
       <span className="font-semibold">{amount}</span>
     </div>
   );
@@ -303,8 +369,10 @@ function Progress({
     <div className="mb-5">
       <div className="flex justify-between text-sm mb-1">
         <span>{label}</span>
+
         <span>{amount}</span>
       </div>
+
       <div className="w-full h-2 bg-gray-200 rounded">
         <div
           className="h-2 bg-green-500 rounded"
